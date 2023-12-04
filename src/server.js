@@ -8,8 +8,13 @@ import cors from "cors";
 require("dotenv").config();
 
 let app = express();
-app.use(cors({ credentials: true ,origin: true }));
+// app.use(cors({ credentials: true ,origin: '*' }));
+// Add headers before the routes are defined
+// app.use(
+//   cors({credentials: true, origin: ['http://localhost:80', 'http://14.236.21.159:80', '*']})
+// );
 //config app
+app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
